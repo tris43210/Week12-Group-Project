@@ -33,13 +33,15 @@ export default function RootLayout({ children }) {
             <div className="flex items-center gap-4">
               <SignedOut>
                 <SignInButton />
-                <SignUpButton>
+                <SignUpButton forceRedirectUrl="/artist/create-profile">
                   <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-2 sm:px-3 cursor-pointer">
                     Sign Up
                   </button>
                 </SignUpButton>
               </SignedOut>
               <SignedIn>
+                <Link href="/">Feed </Link>
+                <Link href="/artist/myprofile">My Profile</Link>
                 <UserButton />
               </SignedIn>
             </div>
