@@ -1,9 +1,7 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
@@ -14,17 +12,22 @@
   --color-folio-slate: #2c3c3b;
 }
 
+
+:root {
+  --background: #191b1b;
+  --foreground: #ffffff;
+=======
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #191b1b;
     --foreground: #ededed;
   }
+
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 * {
