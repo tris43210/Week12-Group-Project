@@ -12,16 +12,16 @@
   --color-folio-slate: #2c3c3b;
 }
 
-
 :root {
   --background: #191b1b;
   --foreground: #ffffff;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #191b1b;
     --foreground: #ededed;
   }
-
 }
 
 body {
