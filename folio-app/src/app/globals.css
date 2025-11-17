@@ -12,9 +12,17 @@
   --color-folio-slate: #2c3c3b;
 }
 
+
 :root {
   --background: #191b1b;
   --foreground: #ffffff;
+=======
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #191b1b;
+    --foreground: #ededed;
+  }
+
 }
 
 body {
@@ -24,6 +32,6 @@ body {
 
 * {
   box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
+  /* margin: 0px;
+  padding: 0px; */
 }
