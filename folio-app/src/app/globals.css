@@ -6,10 +6,12 @@
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-folio-blue: #2ebbb6;
+  --color-folio-cyan: #12e6e0;
+  --color-folio-teal: #3b6665;
+  --color-folio-slate: #2c3c3b;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,6 +29,6 @@ body {
 
 * {
   box-sizing: border-box;
-  margin: 0px; 
+  margin: 0px;
   padding: 0px;
 }
