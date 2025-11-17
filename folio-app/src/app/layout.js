@@ -8,6 +8,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import Link from "next/link";
+import NavBar from "@/components/NavBar/page";
 
 import { Limelight } from "next/font/google";
 
@@ -26,11 +27,9 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body className={`antialiased`}>
-          <nav className="flex justify-between items-center p-4 gap-4 h-20 bg-[#2D3333] shadow-lg bg-opacity-65 backdrop-blur-sm">
-            <Link href={"/"} className={`${limelight.className} text-4xl`}>
-              FOLIO
-            </Link>
-            <div className="flex items-center gap-4">
+          <div>
+            <NavBar />
+            <div className="fixed top-2 right-15 text-center text-white">
               <SignedOut>
                 <SignInButton />
                 <SignUpButton forceRedirectUrl="/artist/create-profile">
@@ -45,7 +44,7 @@ export default function RootLayout({ children }) {
                 <UserButton />
               </SignedIn>
             </div>
-          </nav>
+          </div>
           {children}
         </body>
       </html>
