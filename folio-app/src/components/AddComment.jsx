@@ -1,5 +1,4 @@
 export default async function AddComment(props) {
-  console.log(props);
   return (
     <div>
       <form action={props.handleSubmit}>
