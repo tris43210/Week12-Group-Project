@@ -2,9 +2,11 @@
 import AddComment from "@/components/AddComment";
 import Link from "next/link";
 import { db } from "@/utils/connect";
+import { getArtistInfo } from "@/utils/getArtistInfo";
 
 export default async function ArtworkPage({ params }) {
   const { id } = await params;
+  const artistInfo = await getArtistInfo();
 
   // db.query to get artist ID from the artwork table
   async function handleSubmit(formData) {
@@ -12,8 +14,8 @@ export default async function ArtworkPage({ params }) {
     const data = Object.fromEntries(formData);
     console.log(data);
     const sendToDb = await db.query(
-      "INSERT INTO comments (artworkid,comment) VALUES ($1, $2)",
-      [id, data.comment]
+      "INSERT INTO comments (artworkid,comment, artistid) VALUES ($1, $2, $3)",
+      [id, data.comment, artistInfo.id]
     );
   }
 
