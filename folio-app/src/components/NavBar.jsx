@@ -16,7 +16,7 @@ export default async function NavBar() {
         <Link href={"/"}>Home | </Link>
         <Link href={"/artist/myprofile"}>My Profile</Link>
       </div>
-      <div>{artist.name}</div>
+      <div>{artist?.name}</div>
     </nav>
   );
 }
