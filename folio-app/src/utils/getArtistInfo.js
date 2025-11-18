@@ -1,13 +1,13 @@
 import { auth } from "@clerk/nextjs/server";
 import { db } from "./connect";
 
-export async function getUserInfo() {
+export async function getArtistInfo() {
   try {
     const { userId } = await auth();
     if (!userId) {
       return null;
     }
-    const res = await db.query(`SELECT * FROM artists WHERE clerk_id = $1`, [
+    const res = await db.query(`SELECT * FROM artist WHERE clerk_id = $1`, [
       userId,
     ]);
 
