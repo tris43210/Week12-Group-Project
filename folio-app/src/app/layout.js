@@ -7,8 +7,8 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
-import Link from "next/link";
 import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 
 import { Limelight } from "next/font/google";
 
@@ -44,6 +44,7 @@ export default function RootLayout({ children }) {
             </div>
           </div>
           {children}
+          <Footer />
         </body>
       </html>
     </ClerkProvider>
