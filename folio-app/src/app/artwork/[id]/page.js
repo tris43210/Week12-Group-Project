@@ -3,6 +3,7 @@ import AddComment from "@/components/AddComment";
 import Link from "next/link";
 import { db } from "@/utils/connect";
 import { getArtistInfo } from "@/utils/getArtistInfo";
+import CommentDisplay from "@/components/CommentDisplay";
 
 export default async function ArtworkPage({ params }) {
   const { id } = await params;
@@ -12,7 +13,6 @@ export default async function ArtworkPage({ params }) {
   async function handleSubmit(formData) {
     "use server";
     const data = Object.fromEntries(formData);
-    console.log(data);
     const sendToDb = await db.query(
       "INSERT INTO comments (artworkid,comment, artistid) VALUES ($1, $2, $3)",
       [id, data.comment, artistInfo.id]
@@ -23,6 +23,7 @@ export default async function ArtworkPage({ params }) {
     <div>
       This is individual artwork page. Database query from searchParams.
       {/* <Link href={`/artist/${artwork.artistId}`}>Artists Name</Link> */}
+      <CommentDisplay artworkId={id} />
       <AddComment handleSubmit={handleSubmit} />
     </div>
   );
