@@ -47,13 +47,15 @@ export default async function MyProfilePage() {
   }
   return (
     <div className="mx-4 2xl:mx-[100px] mt-4">
-      <h1 className="text-xl font-bold">{`Welcome ${gotUser.name}`}</h1>
-      <h2>{gotUser.bio}</h2>
-      <AddArtworkModal submitArt={handleSubmit} />
-      <EditProfileModal
-        artist={gotUser}
-        handleUpdateProfile={handleUpdateProfile}
-      />
+      <div className="bg-folio-slate w-fit rounded-xl p-2 mb-4">
+        <h1 className="text-xl font-bold">{`Welcome ${gotUser.name}`}</h1>
+        <h2>{gotUser.bio}</h2>
+        <AddArtworkModal submitArt={handleSubmit} />
+        <EditProfileModal
+          artist={gotUser}
+          handleUpdateProfile={handleUpdateProfile}
+        />
+      </div>
       <MyArtworkCarousel artwork={response} />
     </div>
   );
