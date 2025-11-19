@@ -11,19 +11,27 @@ function isValidUrl(string) {
   }
 }
 
-export default async function Home() {
+export default async function Home({ searchParams }) {
+  const filters = await searchParams;
+  const sortParam = filters?.sort;
+  let order = sortParam === "desc" ? "DESC" : "ASC";
+
   const artwork = (
     await db.query(`SELECT 
        artwork.id,
       artwork.img
     FROM artwork
-  `)
+    ORDER BY artwork.created_at ${order}`)
   ).rows;
 
   const validArtwork = artwork.filter((art) => art.img && isValidUrl(art.img));
 
   return (
     <div className="w-full min-h-screen bg-amber-200 sm:bg-black">
+      <div className="flex justify-end gap-5 mr-5">
+        <Link href="/?sort=asc">Oldest </Link>
+        <Link href="/?sort=desc">Newest</Link>
+      </div>
       <div className="flex justify-center">
         <div className="lg:w-5/6 p-4">
           <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
