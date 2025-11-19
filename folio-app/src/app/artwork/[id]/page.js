@@ -27,7 +27,8 @@ export default async function ArtworkPage({ params }) {
      artwork.id,
      artwork.name,
      artwork.img,
-     artwork.artist_id
+     artwork.artist_id,
+     artist.name AS artist
   FROM artwork
   JOIN artist ON artwork.artist_id = artist.id
   WHERE artwork.id = $1`,
