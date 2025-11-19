@@ -14,7 +14,7 @@ export default async function NavBar() {
       <h1 className={`${limelight.className} text-4xl`}>FOLIO</h1>
       <div>
         <Link href={"/"}>Home | </Link>
-        <Link href={"/artist/myprofile"}>My Profile</Link>
+        {artist && <Link href={"/artist/myprofile"}>My Profile</Link>}
       </div>
       <div>{artist?.name}</div>
     </nav>
