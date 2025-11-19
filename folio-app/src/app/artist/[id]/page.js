@@ -1,5 +1,7 @@
 // Individual artist page
+import MyArtworkCarousel from "@/components/MyArtworkCarousel";
 import { db } from "@/utils/connect";
+import { getArtistInfo } from "@/utils/getArtistInfo";
 
 export default async function ArtistPage({ params }) {
   const { id } = await params;
@@ -8,12 +10,19 @@ export default async function ArtistPage({ params }) {
       FROM artist WHERE id=$1`,
     [id]
   );
+
+  const Artworkdata = await db.query(
+    "SELECT * FROM artwork WHERE artist_id=$1",
+    [id]
+  );
+  const response = Artworkdata.rows;
+
   const artInfo = data.rows[0];
   return (
-    <div>
-      <p>This is the Page for each artists profile.</p>
-      <h2>{artInfo.name}</h2>
+    <div className="mx-4 2xl:mx-[100px] mt-4">
+      <h2 className="text-xl font-bold">{artInfo.name}</h2>
       <h2>{artInfo.bio}</h2>
+      <MyArtworkCarousel artwork={response} />
     </div>
   );
 }

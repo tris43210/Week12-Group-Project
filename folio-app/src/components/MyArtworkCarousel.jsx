@@ -10,18 +10,14 @@ import { getArtistInfo } from "@/utils/getArtistInfo";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function MyArtworkCarousel() {
-  const artistInfo = await getArtistInfo();
-  const data = await db.query("SELECT * FROM artwork WHERE artist_id=$1", [
-    artistInfo.id,
-  ]);
-  const response = data.rows;
+export default async function MyArtworkCarousel(props) {
+  console.log(props);
   return (
     <>
       <div className="w-full">
         <Carousel className="m-[50px]">
           <CarouselContent>
-            {response.map(function (item) {
+            {props.artwork.map(function (item) {
               return (
                 <CarouselItem key={item.id} className="basis-1/3">
                   <div className="aspect-square w-full h-[500px] overflow-hidden">

@@ -5,6 +5,8 @@ import { auth } from "@clerk/nextjs/server";
 import EditProfileModal from "@/components/EditProfileModal";
 import AddArtworkModal from "@/components/AddArtworkModal";
 import MyArtworkCarousel from "@/components/MyArtworkCarousel";
+import { getArtistInfo } from "@/utils/getArtistInfo";
+import { revalidatePath } from "next/cache";
 
 export default async function MyProfilePage() {
   const { userId } = await auth();
@@ -13,6 +15,13 @@ export default async function MyProfilePage() {
   ]);
   const gotUser = getID.rows[0];
 
+  const artistInfo = await getArtistInfo();
+  const data = await db.query("SELECT * FROM artwork WHERE artist_id=$1", [
+    artistInfo.id,
+  ]);
+  const response = data.rows;
+  console.log(response);
+
   async function handleSubmit(formData) {
     "use server";
     const data = Object.fromEntries(formData);
@@ -20,6 +29,7 @@ export default async function MyProfilePage() {
       "INSERT INTO artwork (name, img, artist_id) VALUES ($1, $2, $3)",
       [data.name, data.img, gotUser.id]
     );
+    revalidatePath("/artist/myprofile");
   }
 
   async function handleUpdateProfile(formData) {
@@ -33,9 +43,10 @@ export default async function MyProfilePage() {
         WHERE id = $4`,
       [data.name, data.bio, data.avatar, gotUser.id]
     );
+    revalidatePath("/artist/myprofile");
   }
   return (
-    <div>
+    <div className="mx-4 2xl:mx-[100px] mt-4">
       <h1 className="text-xl font-bold">{`Welcome ${gotUser.name}`}</h1>
       <h2>{gotUser.bio}</h2>
       <AddArtworkModal submitArt={handleSubmit} />
@@ -43,7 +54,7 @@ export default async function MyProfilePage() {
         artist={gotUser}
         handleUpdateProfile={handleUpdateProfile}
       />
-      <MyArtworkCarousel />
+      <MyArtworkCarousel artwork={response} />
     </div>
   );
 }
