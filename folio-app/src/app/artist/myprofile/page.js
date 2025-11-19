@@ -4,6 +4,7 @@ import { db } from "@/utils/connect";
 import { auth } from "@clerk/nextjs/server";
 import EditProfileModal from "@/components/EditProfileModal";
 import AddArtworkModal from "@/components/AddArtworkModal";
+import MyArtworkCarousel from "@/components/MyArtworkCarousel";
 
 export default async function MyProfilePage() {
   const { userId } = await auth();
@@ -35,11 +36,14 @@ export default async function MyProfilePage() {
   }
   return (
     <div>
+      <h1 className="text-xl font-bold">{`Welcome ${gotUser.name}`}</h1>
+      <h2>{gotUser.bio}</h2>
       <AddArtworkModal submitArt={handleSubmit} />
       <EditProfileModal
         artist={gotUser}
         handleUpdateProfile={handleUpdateProfile}
       />
+      <MyArtworkCarousel />
     </div>
   );
 }
