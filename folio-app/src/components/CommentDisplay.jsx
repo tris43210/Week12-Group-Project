@@ -27,7 +27,7 @@ export default function CommentDisplay(props) {
   );
 
   return (
-    <div>
+    <div className="w-full flex flex-col items-center border border-white ">
       <div>
         {comments.map((comment) => {
           return <p key={comment.id}>{comment.comment}</p>;

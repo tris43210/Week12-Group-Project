@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { InstagramIcon } from "@/components/Icons/InstagramIcon";
 import { XIcon } from "@/components/Icons/XIcon";
-import { FireIcon } from "@/components/Icons/FireIcon";
 import { FacebookIcon } from "@/components/Icons/FacebookIcon";
 
 export default function Footer() {
@@ -18,8 +17,6 @@ export default function Footer() {
       <Link href="https://www.facebook.com/">
         <FacebookIcon />
       </Link>
-
-      <FacebookIcon />
     </div>
   );
 }
