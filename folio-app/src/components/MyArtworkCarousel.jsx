@@ -5,8 +5,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { db } from "@/utils/connect";
-import { getArtistInfo } from "@/utils/getArtistInfo";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +13,7 @@ export default async function MyArtworkCarousel(props) {
   console.log(props);
   return (
     <>
-      <div className="w-full">
+      <div className="w-full bg-folio-slate rounded-xl p-0.5">
         <Carousel className="m-[50px]">
           <CarouselContent>
             {props.artwork.map(function (item) {
@@ -27,7 +26,7 @@ export default async function MyArtworkCarousel(props) {
                         alt=""
                         width={600}
                         height={500}
-                        className=" h-full object-cover"
+                        className=" h-full object-cover rounded-xl"
                       />
                     </Link>
                   </div>
