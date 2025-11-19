@@ -43,10 +43,11 @@ export default function AddArtworkModal({ submitArt }) {
           >
             Image URL
           </label>
-          <textarea
-            type="text"
+          <input
+            type="url"
             id="img"
             name="img"
+            pattern="^(https?://.*(unsplash\.com|imgur\.com|cloudinary\.com|amazonaws\.com|googleusercontent\.com).*)|(https?://.*\.(jpg|jpeg|png|gif|webp|svg)(\?.*)?)$"
             placeholder="Image URL"
             required
             className="shadow appearance-none border border-folio-cyan text-folio-cyan rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"
