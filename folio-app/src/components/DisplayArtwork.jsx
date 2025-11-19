@@ -1,5 +1,6 @@
 import { ReactionsIcon } from "@/components/Icons/ReactionsIcon";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function DisplayArtwork({ artwork }) {
   return (
@@ -14,12 +15,14 @@ export default function DisplayArtwork({ artwork }) {
             className="w-full h-auto rounded-xl object-cover"
           />
         </div>
-        <div className="mx-4">
+        <div className="m-4 flex">
           <ReactionsIcon />
-          Reactions 0
+          <div className="mx-4">0</div>
         </div>
       </div>
-      <div className="m-4">{artwork.artist}</div>
+      <div className="m-4 hover:text-folio-cyan">
+        <Link href={`/artist/${artwork.artist_id}`}>{artwork.artist}</Link>
+      </div>
       <div className="m-4">{artwork.name}</div>
     </div>
   );

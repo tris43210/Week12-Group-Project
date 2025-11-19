@@ -17,8 +17,6 @@ export default function Footer() {
       <Link href="https://www.facebook.com/">
         <FacebookIcon />
       </Link>
-
-      <FacebookIcon />
     </div>
   );
 }
