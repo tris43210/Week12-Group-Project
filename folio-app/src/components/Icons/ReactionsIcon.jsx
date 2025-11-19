@@ -1,4 +1,4 @@
-export function FireIcon() {
+export function ReactionsIcon() {
   return (
     <div className="block w-1/50 h-1/50">
       <svg
