@@ -1,6 +1,7 @@
 import { Limelight } from "next/font/google";
 import Link from "next/link";
 import { getArtistInfo } from "@/utils/getArtistInfo";
+
 import {
   ClerkProvider,
   SignInButton,
@@ -23,8 +24,16 @@ export default async function NavBar() {
         <div className="flex items-center gap-5">
           <h1 className={`${limelight.className} text-4xl`}>FOLIO</h1>
           <div>
-            <Link href={"/"}>| Home | </Link>
-            {artist && <Link href={"/artist/myprofile"}>My Profile |</Link>}
+            <Link className="hover:text-[#12E6E0]" href={"/"}>
+              Home
+            </Link>{" "}
+            |
+            {artist && (
+              <Link className="hover:text-[#e612e6]" href={"/artist/myprofile"}>
+                {" "}
+                My Profile
+              </Link>
+            )}
           </div>
         </div>
         <div className="flex gap-2">
