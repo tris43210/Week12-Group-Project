@@ -28,21 +28,46 @@ export default async function CreateProfilePage() {
           className="bg-folio-slate shadow-md rounded px-8 pt-6 pb-8 mb-4"
         >
           <div className="mb-4">
-            <label htmlFor="user-name" className="block text-folio-cyan text-sm font-bold mb-2">Username: </label>
-            <input type="text" id="user-name" placeholder="Enter a username" name="name" required className="shadow appearance-none border rounded w-full py-2 px-3 text-folio-cyan leading-tight focus:outline-none focus:shadow-outline"></input>
+            <h1 className="thick-gradient-underline">Tell Us About Yourself</h1>
+
+            <label
+              htmlFor="user-name"
+              className="block text-folio-cyan text-sm font-bold mb-2"
+            >
+              Username:{" "}
+            </label>
+            <input
+              type="text"
+              id="user-name"
+              placeholder="Enter a username"
+              name="name"
+              required
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-folio-cyan leading-tight focus:outline-none focus:shadow-outline"
+            ></input>
           </div>
           <div className="mb-4">
-            <label htmlFor="user-bio" className="block text-folio-cyan text-sm font-bold mb-2">Profile Bio: </label>
+            <label
+              htmlFor="user-bio"
+              className="block text-folio-cyan text-sm font-bold mb-2"
+            >
+              Profile Bio:{" "}
+            </label>
             <input
               type="text"
               id="user-bio"
               placeholder="Enter a profile bio"
               name="bio"
               required
-            className="shadow appearance-none border border-folio-cyan text-folio-cyan rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"></input>
+              className="shadow appearance-none border border-folio-cyan text-folio-cyan rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            ></input>
           </div>
           <div className="mb-4">
-            <label htmlFor="user-avatar" className="block text-folio-cyan text-sm font-bold mb-2">Avatar Image: </label>
+            <label
+              htmlFor="user-avatar"
+              className="block text-folio-cyan text-sm font-bold mb-2"
+            >
+              Avatar Image:{" "}
+            </label>
             <input
               type="text"
               id="user-avatar"
@@ -53,7 +78,12 @@ export default async function CreateProfilePage() {
             ></input>
           </div>
           <div className="flex items-center justify-center">
-            <button type="submit" class="bg-folio-blue hover:bg-folio-cyan text-folio-slate font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit Information</button>
+            <button
+              type="submit"
+              className="bg-folio-blue hover:bg-folio-cyan text-folio-slate font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Submit Information
+            </button>
           </div>
         </form>
       </div>
