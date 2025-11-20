@@ -1,11 +1,6 @@
 import Link from "next/link";
 
-export default async function SortBy({ searchParams }) {
-  const filters = searchParams;
-  const sortParam = filters?.sort;
-
-  let order = sortParam === "desc" ? "DESC" : "ASC";
-}
+export default async function SortBy({ searchParams }) {}
 
 return (
   <div>

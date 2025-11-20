@@ -5,6 +5,7 @@ import { db } from "@/utils/connect";
 import { getArtistInfo } from "@/utils/getArtistInfo";
 import CommentDisplay from "@/components/CommentDisplay";
 import DisplayArtwork from "@/components/DisplayArtwork";
+import { notFound } from "next/navigation";
 
 export default async function ArtworkPage({ params }) {
   const { id } = await params;
@@ -38,6 +39,10 @@ export default async function ArtworkPage({ params }) {
       [id]
     )
   ).rows[0];
+
+  if (!artwork) {
+    notFound();
+  }
 
   return (
     <div>
