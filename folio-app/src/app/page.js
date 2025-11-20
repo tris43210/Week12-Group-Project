@@ -28,9 +28,19 @@ export default async function Home({ searchParams }) {
 
   return (
     <div className="w-full min-h-screen ">
-      <div className="flex justify-end gap-5 mr-5">
-        <Link href="/?sort=asc">Oldest </Link>
-        <Link href="/?sort=desc">Newest</Link>
+      <div className="flex justify-end gap-2 mr-5 mt-3">
+        <Link
+          className="bg-[#2D3333] text-white rounded-xl p-3 hover:bg-folio-blue"
+          href="/?sort=asc"
+        >
+          Oldest{" "}
+        </Link>
+        <Link
+          className="bg-[#2D3333] text-white rounded-xl p-3 hover:bg-folio-blue"
+          href="/?sort=desc"
+        >
+          Newest
+        </Link>
       </div>
       <div className="flex justify-center">
         <div className="lg:w-5/6 p-4">
