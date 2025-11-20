@@ -2,6 +2,7 @@
 import MyArtworkCarousel from "@/components/MyArtworkCarousel";
 import { db } from "@/utils/connect";
 import { getArtistInfo } from "@/utils/getArtistInfo";
+import NotFound from "./not-found";
 
 export default async function ArtistPage({ params }) {
   const { id } = await params;
@@ -10,6 +11,10 @@ export default async function ArtistPage({ params }) {
       FROM artist WHERE id=$1`,
     [id]
   );
+
+  if (!data) {
+    NotFound();
+  }
 
   const Artworkdata = await db.query(
     "SELECT * FROM artwork WHERE artist_id=$1",
