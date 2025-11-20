@@ -17,40 +17,44 @@ This is a Next.JS application.
 
 ## Friday sprint
 
-[x] Registered project on Clerk
-[x] Communication channels - Trello, Figma, Discord
-[x] Created repo and all git cloned
-[x] Created basic user flow with Pages
-[x] Created Supabase database tables
+- [x] Agreed project problem domain and created user stories
+- [x] Communication channels - Trello, Figma, Discord
+- [x] Created repo and all git cloned
+- [x] Registered project on Clerk
+- [x] Created basic user flow with Pages
+- [x] Created Supabase database tables
 
 ## Monday sprint
 
-[x] Created forms to create profile and upload artwork
-[x] Designed homepage masonry gallery
+- [x] Created forms to create profile and upload artwork
+- [x] Designed homepage masonry gallery
 
 ## Tuesday sprint
 
-[x] Created form to create comments
-[x] Client-side polling for refreshing comments - used [Next API routes](https://nextjs.org/docs/app/api-reference/file-conventions/route)
-[x] Used UI components from shadcn [Dialog modals](https://ui.shadcn.com/docs/components/dialog) [Carousel](https://ui.shadcn.com/docs/components/carousel) [Scroll area](https://ui.shadcn.com/docs/components/scroll-area)
+- [x] Created form to create comments
+- [x] Client-side polling for refreshing comments - used [Next API routes](https://nextjs.org/docs/app/api-reference/file-conventions/route)
+- [x] Used UI components from shadcn [Dialog modals](https://ui.shadcn.com/docs/components/dialog) [Carousel](https://ui.shadcn.com/docs/components/carousel) [Scroll area](https://ui.shadcn.com/docs/components/scroll-area)
 
 ## Wednesday sprint
 
-[x] Completed /artist/id dynamic route
-[x] Secured all routes with Clerk proxy.js
-[x] Added client-validation for image URL (RegEx) and server-side validation when trying to render **Image** components
-[x] Added header and footer
+- [x] Completed /artist/id dynamic route
+- [x] Secured all routes with Clerk proxy.js
+- [x] Added client-validation for image URL (RegEx) and server-side validation when trying to render **Image** components
+- [x] Added header and footer
 
 ## Thursday sprint
 
-[x] Added searchParams for sorting home page ascending / descending
-[x] Uploaded to Vercel
-[x] Added 'reactions' functionality for users to 'like' artwork
-[x] Added error pages
+- [x] Added searchParams for sorting home page ascending / descending
+- [x] Uploaded to Vercel
+- [x] Added 'reactions' functionality for users to 'like' artwork
+- [x] Added error pages
+- [x] Created Presentation
 
 ## :dart: Stretch goals not acheived
 
-[ ] Users can create a link to an avatar URL, we haven't used this feature as yet
+- [ ] Users can create a link to an avatar URL, we haven't used this feature as yet
+- [ ] Homepage pagination of images (say at 50) to reduce data calls to database
+- [ ] Dynamic metadata so that users can share our pages on social media :smiley:
 
 ## With thanks
 
