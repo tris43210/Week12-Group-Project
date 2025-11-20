@@ -1,9 +1,9 @@
 // Individual artwork page
-import AddComment from "@/components/AddComment";
+import CommentAdd from "@/components/CommentAdd";
 import { db } from "@/utils/connect";
 import { getArtistInfo } from "@/utils/getArtistInfo";
 import CommentDisplay from "@/components/CommentDisplay";
-import DisplayArtwork from "@/components/DisplayArtwork";
+import ArtWorkDisplay from "@/components/ArtworkDisplay";
 import { notFound } from "next/navigation";
 import { revalidatePath } from "next/cache";
 
@@ -66,9 +66,9 @@ export default async function ArtworkPage({ params }) {
 
   return (
     <div>
-      <DisplayArtwork artwork={artwork} handleReaction={handleReaction} />
+      <ArtWorkDisplay artwork={artwork} handleReaction={handleReaction} />
       <CommentDisplay artworkId={id} handleDelete={handleDelete} />
-      <AddComment handleSubmit={handleSubmit} />
+      <CommentAdd handleSubmit={handleSubmit} />
     </div>
   );
 }

@@ -42,16 +42,12 @@ export default function CommentDisplay(props, handleDelete) {
                     {comment.artistname} on{" "}
                     {new Date(comment.created_at).toLocaleDateString("en-GB")}
                   </p>
-                  <form action={handleDelete}>
-                    <input
-                      type="hidden"
-                      value={comment.commentid}
-                      name="commentId"
-                    />
-                    <button type="submit" className="mx-8 button">
-                      Delete
-                    </button>
-                  </form>
+                  <button
+                    onClick={() => deleteComment(comment.commentid)}
+                    className="mx-8 button"
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             );
