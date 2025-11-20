@@ -1,8 +1,13 @@
+"use client";
 import { ReactionsIcon } from "@/components/Icons/ReactionsIcon";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
-export default function DisplayArtwork({ artwork }) {
+export default function DisplayArtwork({ artwork, handleReaction }) {
+  console.log(artwork);
+  const [reactions, setReactions] = useState(parseInt(artwork.like_count) || 0);
+
   return (
     <div className="w-full flex flex-col items-center ">
       <div className="flex items-center m-4">
@@ -16,8 +21,15 @@ export default function DisplayArtwork({ artwork }) {
           />
         </div>
         <div className="mx-10 flex">
-          <ReactionsIcon />
-          <div className="mx-2">{artwork.like_count}</div>
+          <div
+            onClick={() => {
+              setReactions((previous) => previous + 1);
+              handleReaction();
+            }}
+          >
+            <ReactionsIcon />
+          </div>
+          <div className="mx-2">{reactions}</div>
         </div>
       </div>
       <div className="m-4 hover:text-folio-cyan">
