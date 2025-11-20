@@ -10,7 +10,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default async function MyArtworkCarousel(props) {
-  console.log(props);
   return (
     <>
       <div className="w-full bg-folio-slate rounded-xl p-0.5">
@@ -20,7 +19,7 @@ export default async function MyArtworkCarousel(props) {
               return (
                 <CarouselItem key={item.id} className="basis-1/3">
                   <div className="aspect-square w-full h-[500px] overflow-hidden">
-                    <Link href={`http://localhost:3000/artwork/${item.id}`}>
+                    <Link href={`/artwork/${item.id}`}>
                       <Image
                         src={item.img}
                         alt=""
