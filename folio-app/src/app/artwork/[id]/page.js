@@ -28,10 +28,13 @@ export default async function ArtworkPage({ params }) {
      artwork.name,
      artwork.img,
      artwork.artist_id,
-     artist.name AS artist
+     artist.name AS artist,
+   COUNT(likes.id) as like_count
   FROM artwork
   JOIN artist ON artwork.artist_id = artist.id
-  WHERE artwork.id = $1`,
+  LEFT JOIN likes ON artwork.id = likes.artworkid
+  WHERE artwork.id = $1
+  GROUP BY artwork.id, artwork.name, artwork.img, artwork.artist_id, artist.name`,
       [id]
     )
   ).rows[0];

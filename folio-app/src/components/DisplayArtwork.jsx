@@ -15,15 +15,15 @@ export default function DisplayArtwork({ artwork }) {
             className="w-full h-auto rounded-xl object-cover"
           />
         </div>
-        <div className="m-4 flex">
+        <div className="mx-10 flex">
           <ReactionsIcon />
-          <div className="mx-4">0</div>
+          <div className="mx-2">{artwork.like_count}</div>
         </div>
       </div>
       <div className="m-4 hover:text-folio-cyan">
         <Link href={`/artist/${artwork.artist_id}`}>{artwork.artist}</Link>
       </div>
-      <div className="m-4">{artwork.name}</div>
+      <div>{artwork.name}</div>
     </div>
   );
 }
