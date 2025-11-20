@@ -1,6 +1,6 @@
 "use client";
-
 import { useState, useEffect } from "react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function CommentDisplay(props) {
   const [comments, setComments] = useState([]);
@@ -27,12 +27,14 @@ export default function CommentDisplay(props) {
   );
 
   return (
-    <div className="w-full flex flex-col items-center border border-white ">
-      <div>
-        {comments.map((comment) => {
-          return <p key={comment.id}>{comment.comment}</p>;
-        })}
-      </div>
+    <div className="w-full flex flex-col items-center ">
+      <ScrollArea className="w-2/3 h-20 rounded-md p-4 bg-folio-slate ">
+        <div>
+          {comments.map((comment) => {
+            return <p key={comment.id}>{comment.comment}</p>;
+          })}
+        </div>
+      </ScrollArea>
     </div>
   );
 }
