@@ -20,8 +20,10 @@ export default async function ArtistPage({ params }) {
   const artInfo = data.rows[0];
   return (
     <div className="mx-4 2xl:mx-[100px] mt-4">
-      <h2 className="text-xl font-bold">{artInfo.name}</h2>
-      <h2>{artInfo.bio}</h2>
+      <div className="bg-folio-slate w-fit rounded-xl p-2 mb-4 m-auto">
+        <h2 className="text-xl font-bold">{artInfo.name}</h2>
+        <h2>{artInfo.bio}</h2>
+      </div>
       <MyArtworkCarousel artwork={response} />
     </div>
   );

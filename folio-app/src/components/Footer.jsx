@@ -5,7 +5,7 @@ import { FacebookIcon } from "@/components/Icons/FacebookIcon";
 
 export default function Footer() {
   return (
-    <div className="flex w-full fixed bottom-0 justify-center p-4 gap-4  bg-[#2D3333] text-white shadow-lg bg-opacity-65">
+    <div className="flex w-full fixed bottom-0 justify-center p-4 gap-6  bg-[#2D3333] text-white shadow-lg bg-opacity-65">
       <Link href="https://www.instagram.com/" className="block w-1/50 h-1/50">
         <InstagramIcon />
       </Link>
