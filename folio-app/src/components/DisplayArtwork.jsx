@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function DisplayArtwork({ artwork, handleReaction }) {
-  console.log(artwork);
   const [reactions, setReactions] = useState(parseInt(artwork.like_count) || 0);
 
   return (

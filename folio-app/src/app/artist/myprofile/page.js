@@ -20,7 +20,6 @@ export default async function MyProfilePage() {
     artistInfo.id,
   ]);
   const response = data.rows;
-  console.log(response);
 
   async function handleSubmit(formData) {
     "use server";

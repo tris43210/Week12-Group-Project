@@ -9,7 +9,7 @@ export default function CommentDisplay(props, handleDelete) {
     function () {
       async function getComments() {
         const response = await fetch(
-          `http://localhost:3000/api/comments/${props.artworkId}`
+          `https://folio-app-smoky.vercel.app/api/comments/${props.artworkId}`
         );
         const data = await response.json();
         setComments(data);
