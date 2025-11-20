@@ -13,7 +13,9 @@ import {
 export default function EditProfileModal({ artist, handleUpdateProfile }) {
   return (
     <Dialog>
-      <DialogTrigger>Edit Profile...</DialogTrigger>
+      <DialogTrigger className="ml-5 mt-3 bg-folio-cyan text-folio-slate rounded-xl p-3 font-bold hover:bg-folio-blue">
+        Edit Profile
+      </DialogTrigger>
       <DialogContent className="bg-folio-slate shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <DialogHeader>
           <DialogTitle>Edit Profile</DialogTitle>

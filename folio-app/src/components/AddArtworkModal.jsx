@@ -12,8 +12,10 @@ import {
 
 export default function AddArtworkModal({ submitArt }) {
   return (
-    <Dialog>
-      <DialogTrigger>Submit Art...</DialogTrigger>
+    <Dialog className="mt-3">
+      <DialogTrigger className=" bg-folio-cyan text-folio-slate rounded-xl p-3 font-bold hover:bg-folio-blue">
+        Submit Art
+      </DialogTrigger>
       <DialogContent className="bg-folio-slate shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <DialogHeader>
           <DialogTitle>Submit your art here!</DialogTitle>

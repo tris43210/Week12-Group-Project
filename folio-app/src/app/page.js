@@ -27,7 +27,7 @@ export default async function Home({ searchParams }) {
   const validArtwork = artwork.filter((art) => art.img && isValidUrl(art.img));
 
   return (
-    <div className="w-full min-h-screen bg-amber-200 sm:bg-black">
+    <div className="w-full min-h-screen ">
       <div className="flex justify-end gap-5 mr-5">
         <Link href="/?sort=asc">Oldest </Link>
         <Link href="/?sort=desc">Newest</Link>
