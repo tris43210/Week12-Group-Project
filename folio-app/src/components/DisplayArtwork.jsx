@@ -32,10 +32,10 @@ export default function DisplayArtwork({ artwork, handleReaction }) {
           <div className="mx-2">{reactions}</div>
         </div>
       </div>
-      <div className="m-4 hover:text-folio-cyan">
+      <div className=" hover:text-folio-cyan">
         <Link href={`/artist/${artwork.artist_id}`}>{artwork.artist}</Link>
       </div>
-      <div>{artwork.name}</div>
+      <div className="italic">{artwork.name}</div>
     </div>
   );
 }

@@ -5,20 +5,11 @@ import { getArtistInfo } from "@/utils/getArtistInfo";
 import CommentDisplay from "@/components/CommentDisplay";
 import DisplayArtwork from "@/components/DisplayArtwork";
 import { notFound } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 export default async function ArtworkPage({ params }) {
   const { id } = await params;
   const artistInfo = await getArtistInfo();
-
-  // Submit a comment
-  async function handleSubmit(formData) {
-    "use server";
-    const data = Object.fromEntries(formData);
-    const sendToDb = await db.query(
-      "INSERT INTO comments (artworkid,comment, artistid) VALUES ($1, $2, $3)",
-      [id, data.comment, artistInfo.id]
-    );
-  }
 
   // get art
   const artwork = (
@@ -44,6 +35,26 @@ export default async function ArtworkPage({ params }) {
     notFound();
   }
 
+  // Submit a comment
+  async function handleSubmit(formData) {
+    "use server";
+    const data = Object.fromEntries(formData);
+    const sendToDb = await db.query(
+      "INSERT INTO comments (artworkid,comment, artistid) VALUES ($1, $2, $3)",
+      [id, data.comment, artistInfo.id]
+    );
+  }
+
+  // delete comment
+  async function handleDelete(commentId) {
+    "use server";
+    const result = await db.query(
+      "DELETE FROM comments WHERE id = $1 RETURNING *",
+      [commentId]
+    );
+    revalidatePath(`/artwork/${artwork.id}`);
+  }
+
   // add a Reaction
   async function handleReaction() {
     "use server";
@@ -56,7 +67,7 @@ export default async function ArtworkPage({ params }) {
   return (
     <div>
       <DisplayArtwork artwork={artwork} handleReaction={handleReaction} />
-      <CommentDisplay artworkId={id} />
+      <CommentDisplay artworkId={id} handleDelete={handleDelete} />
       <AddComment handleSubmit={handleSubmit} />
     </div>
   );
