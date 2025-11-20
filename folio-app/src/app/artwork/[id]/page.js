@@ -1,6 +1,5 @@
 // Individual artwork page
 import AddComment from "@/components/AddComment";
-import Link from "next/link";
 import { db } from "@/utils/connect";
 import { getArtistInfo } from "@/utils/getArtistInfo";
 import CommentDisplay from "@/components/CommentDisplay";
@@ -30,23 +29,33 @@ export default async function ArtworkPage({ params }) {
      artwork.img,
      artwork.artist_id,
      artist.name AS artist,
-   COUNT(likes.id) as like_count
+   COUNT(reactions.id) as like_count
   FROM artwork
   JOIN artist ON artwork.artist_id = artist.id
-  LEFT JOIN likes ON artwork.id = likes.artworkid
+  LEFT JOIN reactions ON artwork.id = reactions.artworkid
   WHERE artwork.id = $1
   GROUP BY artwork.id, artwork.name, artwork.img, artwork.artist_id, artist.name`,
       [id]
     )
   ).rows[0];
 
+  // error for dynamic param not in db
   if (!artwork) {
     notFound();
   }
 
+  // add a Reaction
+  async function handleReaction() {
+    "use server";
+    const reactionToDb = await db.query(
+      "INSERT INTO reactions (artistid, artworkid) VALUES ($1, $2)",
+      [artistInfo.id, artwork.id]
+    );
+  }
+
   return (
     <div>
-      <DisplayArtwork artwork={artwork} />
+      <DisplayArtwork artwork={artwork} handleReaction={handleReaction} />
       <CommentDisplay artworkId={id} />
       <AddComment handleSubmit={handleSubmit} />
     </div>

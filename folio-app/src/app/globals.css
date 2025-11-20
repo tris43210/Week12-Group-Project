@@ -36,7 +36,7 @@ body {
 }
 
 /* CSS */
-.button-43 {
+.button {
   background-color: var(--color-folio-blue);
   border-radius: 0.5rem;
   box-sizing: border-box;
@@ -52,6 +52,6 @@ body {
   touch-action: manipulation;
 }
 
-.button-43:hover {
+.button:hover {
   background-color: var(--color-folio-cyan);
 }
