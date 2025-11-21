@@ -17,7 +17,7 @@ export default async function CreateProfilePage() {
       "INSERT INTO artist (name, bio, avatar,clerk_id) VALUES ($1, $2, $3, $4)",
       [data.name, data.bio, data.avatar, userId]
     );
-    redirect("/myprofile");
+    redirect("/artist/myprofile");
   }
 
   return (
