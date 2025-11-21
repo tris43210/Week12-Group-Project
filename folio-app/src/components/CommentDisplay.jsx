@@ -44,7 +44,7 @@ export default function CommentDisplay(props, handleDelete) {
                   </p>
                   <button
                     onClick={() => deleteComment(comment.commentid)}
-                    className="mx-8 button"
+                    className="ml-5 mt-3 bg-folio-cyan text-folio-slate rounded-xl p-3 font-bold hover:bg-folio-blue"
                   >
                     Delete
                   </button>
