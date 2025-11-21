@@ -18,6 +18,7 @@ export default async function CreateProfilePage() {
       [data.name, data.bio, data.avatar, userId]
     );
     redirect("/artist/myprofile");
+
   }
 
   return (
