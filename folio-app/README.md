@@ -48,12 +48,13 @@ This is a Next.JS application.
 - [x] Uploaded to Vercel
 - [x] Added 'reactions' functionality for users to 'like' artwork
 - [x] Added error pages
+- [x] Added delete comment function - with a delete API
 - [x] Created Presentation
 
 ## :dart: Stretch goals not acheived
 
 - [ ] Users can create a link to an avatar URL, we haven't used this feature as yet
-- [ ] Homepage pagination of images (say at 50) to reduce data calls to database
+- [ ] Homepage pagination of images to reduce data calls to database
 - [ ] Dynamic metadata so that users can share our pages on social media :smiley:
 
 ## With thanks
