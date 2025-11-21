@@ -13,7 +13,7 @@ export async function DELETE(request, { params }) {
       return Response.json({ error: "Comment not found" }, { status: 404 });
     }
 
-    return Response.json({ success: true, deletedComment: result.rows[0] });
+    return Response.json({ success: true, deleted: result.rows[0] });
   } catch (error) {
     console.error("Error deleting comment:", error);
     return Response.json(
