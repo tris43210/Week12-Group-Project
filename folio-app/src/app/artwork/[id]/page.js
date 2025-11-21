@@ -67,7 +67,7 @@ export default async function ArtworkPage({ params }) {
   return (
     <div>
       <ArtWorkDisplay artwork={artwork} handleReaction={handleReaction} />
-      <CommentDisplay artworkId={id} handleDelete={handleDelete} />
+      <CommentDisplay artworkId={id} />
       <CommentAdd handleSubmit={handleSubmit} />
     </div>
   );
